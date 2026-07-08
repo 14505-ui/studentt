@@ -1,265 +1,137 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio กิตติคุณ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio นาย ณฐกร</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Prompt",sans-serif;
-}
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: "Sarabun", sans-serif;
+        }
 
-body{
-    background:linear-gradient(135deg,#ff8c00,#ff9f1c,#ffbf69);
-    min-height:100vh;
-    padding:30px;
-}
+        body{
+            background: linear-gradient(135deg,#dd191d,#ff8c42);
+            color:white;
+        }
 
-.container{
-    max-width:900px;
-    margin:auto;
-    background:#fff;
-    border-radius:25px;
-    overflow:hidden;
-    box-shadow:0 15px 40px rgba(0,0,0,.25);
-}
+        /* เมนู */
+        nav{
+            background: rgba(0,0,0,0.25);
+            padding:15px;
+            text-align:center;
+            position: sticky;
+            top:0;
+        }
 
-.header{
-    text-align:center;
-    padding:50px 20px;
-    background:linear-gradient(135deg,#ff6b00,#ff8c00);
-    color:white;
-}
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin:0 15px;
+            font-size:18px;
+            font-weight:bold;
+            transition:0.3s;
+        }
 
-.profile{
-    width:150px;
-    height:150px;
-    background:white;
-    color:#ff6b00;
-    border-radius:50%;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:70px;
-    font-weight:bold;
-    border:5px solid white;
-    box-shadow:0 5px 15px rgba(0,0,0,.2);
-}
+        nav a:hover{
+            color:yellow;
+        }
 
-.header h1{
-    margin-top:20px;
-    font-size:2.2rem;
-}
+        /* กล่องเนื้อหา */
+        .container{
+            width:80%;
+            max-width:900px;
+            margin:40px auto;
+            background:rgba(255,255,255,0.15);
+            padding:30px;
+            border-radius:20px;
+            text-align:center;
+            box-shadow:0 10px 20px rgba(0,0,0,0.3);
+            backdrop-filter: blur(5px);
+        }
 
-.header p{
-    margin-top:10px;
-    font-size:1.1rem;
-}
+        img{
+            width:220px;
+            height:220px;
+            border-radius:50%;
+            border:6px solid white;
+            object-fit:cover;
+            margin-bottom:20px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.4);
+        }
 
-.content{
-    padding:30px;
-}
+        h1{
+            font-size:40px;
+            margin-bottom:10px;
+        }
 
-.section{
-    margin-bottom:25px;
-}
+        h2{
+            color:#ffe600;
+            margin-bottom:20px;
+        }
 
-.section h2{
-    color:#ff6b00;
-    margin-bottom:10px;
-    border-left:6px solid #ff9f1c;
-    padding-left:10px;
-}
+        p{
+            font-size:20px;
+            margin:10px 0;
+        }
 
-.card{
-    background:#fff4e6;
-    padding:18px;
-    border-radius:15px;
-    transition:.3s;
-}
+        .btn{
+            display:inline-block;
+            margin-top:20px;
+            padding:12px 25px;
+            background:white;
+            color:#dd191d;
+            text-decoration:none;
+            border-radius:30px;
+            font-weight:bold;
+            transition:0.3s;
+        }
 
-.card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 10px 20px rgba(255,140,0,.35);
-}
+        .btn:hover{
+            background:#ffe600;
+            transform:scale(1.05);
+        }
 
-ul{
-    padding-left:20px;
-}
+        footer{
+            text-align:center;
+            padding:20px;
+            margin-top:40px;
+            background:rgba(0,0,0,0.25);
+        }
+    </style>
 
-li{
-    margin:8px 0;
-}
-
-.footer{
-    text-align:center;
-    padding:20px;
-    background:#fff0db;
-    color:#666;
-}
-
-.footer{
-    text-align:center;
-    padding:20px;
-    background:#fff0db;
-    color:#666;
-}
-
-
-/* เพิ่มตรงนี้ */
-
-.menu{
-
-    background:#ff6b00;
-
-    padding:15px;
-
-    text-align:center;
-
-    border-radius:15px;
-
-    margin-bottom:20px;
-
-}
-
-
-.menu a{
-
-    color:white;
-
-    text-decoration:none;
-
-    font-weight:bold;
-
-    margin:0 10px;
-
-}
-
-
-.menu a:hover{
-
-    color:#ffe082;
-
-}
-
-
-/* จบส่วนที่เพิ่ม */
-
-
-@media(max-width:600px){
-
-    .header h1{
-        font-size:1.7rem;
-    }@media(max-width:600px){
-    .header h1{
-        font-size:1.7rem;
-    }
-
-    .profile{
-        width:120px;
-        height:120px;
-        font-size:55px;
-    }
-
-    .content{
-        padding:20px;
-    }
-}
-</style>
 </head>
 
 <body>
 
+    <nav>
+        <a href="profile.html">ประวัติส่วนตัว</a>
+        <a href="education.html">ประวัติการศึกษา</a>
+        <a href="award.html">ผลงาน</a>
+        <a href="contact.html">ช่องทางการติดต่อ</a>
+    </nav>
 
-<nav class="menu">
+    <div class="container">
 
-<a href="index.html">🏠 หน้าแรก</a>
-<a href="profile.html">👤 ประวัติ</a>
-<a href="hobby.html">🎯 งานอดิเรก</a>
-<a href="skills.html">💡 ทักษะ</a>
-<a href="achievement.html">🏆 ผลงาน</a>
-<a href="contact.html">📞 ติดต่อ</a>
+        <img src="images/IMG_7334.JPG" alt="รูปภาพ">
 
-</nav>
+        <h1>นาย ณฐกร วิชัยชะนะ</h1>
+        <h2>Portfolio</h2>
 
+        <p>🎓 นักเรียนชั้นมัธยมศึกษาปีที่ 6/1</p>
+        <p>🏫 โรงเรียนพานทอง</p>
 
-
-<div class="container">
-    <div class="header">
-        <div class="profile">K</div>
-
-        <h1>นายกิตติคุณ มนต์ขจรเดชา</h1>
-        <p>นักเรียนชั้น ม.6/1 | โรงเรียนพานทอง</p>
-    </div>
-
-    <div class="content">
-
-        <div class="section">
-            <h2>👤 ประวัติส่วนตัว</h2>
-            <div class="card">
-                <p>ชื่อ : นายกิตติคุณ มนต์ขจรเดชา</p>
-                <p>กำลังศึกษาอยู่ระดับชั้นมัธยมศึกษาปีที่ 6/1</p>
-                <p>โรงเรียนพานทอง</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>🎯 งานอดิเรก</h2>
-            <div class="card">
-                <ul>
-                    <li>⚽ เล่นฟุตบอล</li>
-                    <li>🎵 ฟังเพลง</li>
-                    <li>🎮 เล่นเกม</li>
-                    <li>💻 ศึกษาเทคโนโลยี</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>💡 ทักษะ</h2>
-            <div class="card">
-                <ul>
-                    <li>HTML เบื้องต้น</li>
-                    <li>CSS เบื้องต้น</li>
-                    <li>Microsoft Word</li>
-                    <li>Microsoft PowerPoint</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>🏆 ผลงาน</h2>
-            <div class="card">
-                <ul>
-                    <li>สร้างเว็บไซต์ Portfolio ด้วย HTML</li>
-                    <li>เข้าร่วมกิจกรรมของโรงเรียน</li>
-                    <li>ทำงานกลุ่มและโครงงานในชั้นเรียน</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>📞 ติดต่อ</h2>
-            <div class="card">
-                <p>Facebook : Kittikhun</p>
-                <p>Email : panphadungxx2@gmail.com</p>
-                <p>โทรศัพท์ : 084-218-2905</p>
-                <p>Instagram : gon._.bikkul</p>
-            </div>
-        </div>
+        <a href="profile.html" class="btn">
+            ดูประวัติส่วนตัว
+        </a>
 
     </div>
 
-    <div class="footer">
-        © Portfolio 2026 | นายกิตติคุณ มนต์ขจรเดชา
-    </div>
-
-</div>
+    <footer>
+        © 2026 Portfolio | นาย ณฐกร วิชัยชะนะ
+    </footer>
 
 </body>
-</html>
