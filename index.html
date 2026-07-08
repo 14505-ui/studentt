@@ -10,11 +10,11 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: "Prompt", sans-serif;
+    font-family:"Prompt",sans-serif;
 }
 
 body{
-    background: linear-gradient(135deg,#ff8c00,#ff9f1c,#ffbf69);
+    background:linear-gradient(135deg,#ff8c00,#ff9f1c,#ffbf69);
     min-height:100vh;
     padding:30px;
 }
@@ -25,13 +25,13 @@ body{
     background:#fff;
     border-radius:25px;
     overflow:hidden;
-    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
 }
 
 .header{
     text-align:center;
     padding:50px 20px;
-    background:linear-gradient(135deg,#5a189a,#7b2cbf);
+    background:linear-gradient(135deg,#ff6b00,#ff8c00);
     color:white;
 }
 
@@ -39,7 +39,7 @@ body{
     width:150px;
     height:150px;
     background:white;
-    color:#7b2cbf;
+    color:#ff6b00;
     border-radius:50%;
     margin:auto;
     display:flex;
@@ -48,6 +48,7 @@ body{
     font-size:70px;
     font-weight:bold;
     border:5px solid white;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
 }
 
 .header h1{
@@ -69,14 +70,14 @@ body{
 }
 
 .section h2{
-    color:#7b2cbf;
+    color:#ff6b00;
     margin-bottom:10px;
-    border-left:6px solid #9d4edd;
+    border-left:6px solid #ff9f1c;
     padding-left:10px;
 }
 
 .card{
-    background:#f8f0ff;
+    background:#fff4e6;
     padding:18px;
     border-radius:15px;
     transition:.3s;
@@ -84,7 +85,7 @@ body{
 
 .card:hover{
     transform:translateY(-5px);
-    box-shadow:0 10px 20px rgba(123,44,191,.2);
+    box-shadow:0 10px 20px rgba(255,140,0,.35);
 }
 
 ul{
@@ -98,8 +99,24 @@ li{
 .footer{
     text-align:center;
     padding:20px;
-    background:#f2f2f2;
+    background:#fff0db;
     color:#666;
+}
+
+@media(max-width:600px){
+    .header h1{
+        font-size:1.7rem;
+    }
+
+    .profile{
+        width:120px;
+        height:120px;
+        font-size:55px;
+    }
+
+    .content{
+        padding:20px;
+    }
 }
 </style>
 </head>
@@ -109,7 +126,7 @@ li{
 <div class="container">
 
     <div class="header">
-        <div class="profile">N</div>
+        <div class="profile">K</div>
 
         <h1>นายกิตติคุณ มนต์ขจรเดชา</h1>
         <p>นักเรียนชั้น ม.6/1 | โรงเรียนพานทอง</p>
@@ -167,7 +184,7 @@ li{
                 <p>Facebook : Kittikhun</p>
                 <p>Email : panphadungxx2@gmail.com</p>
                 <p>โทรศัพท์ : 084-218-2905</p>
-                <p>instagram : gon._.bikkul</p>
+                <p>Instagram : gon._.bikkul</p>
             </div>
         </div>
 
@@ -181,4 +198,3 @@ li{
 
 </body>
 </html>
-```
