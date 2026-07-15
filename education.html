@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ประวัติการศึกษา</title>
+<title>Portfolio | ประวัติการศึกษา</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -14,14 +15,16 @@
 }
 
 body{
-    background:linear-gradient(135deg,#dd191d,#ff8c42);
-    color:white;
+    background:linear-gradient(135deg,#FFA726,#FB8C00,#EF6C00);
+    min-height:100vh;
 }
 
+/* เมนู */
 nav{
     background:rgba(0,0,0,.25);
-    padding:15px;
+    backdrop-filter:blur(8px);
     text-align:center;
+    padding:18px;
 }
 
 nav a{
@@ -30,71 +33,158 @@ nav a{
     margin:0 15px;
     font-size:18px;
     font-weight:bold;
+    padding:10px 18px;
+    border-radius:25px;
+    transition:.3s;
 }
 
 nav a:hover{
-    color:yellow;
+    background:white;
+    color:#EF6C00;
 }
 
+/* หัวข้อ */
 .container{
     width:90%;
-    max-width:900px;
+    max-width:950px;
     margin:40px auto;
 }
 
 h1{
     text-align:center;
+    color:white;
     margin-bottom:30px;
-    color:#ffe600;
+    font-size:40px;
 }
 
+/* การ์ด */
 .school{
+
     display:flex;
     align-items:center;
-    gap:20px;
-    background:rgba(255,255,255,.15);
-    padding:20px;
+    gap:25px;
+
+    background:white;
+
+    padding:25px;
+    margin-bottom:25px;
+
     border-radius:20px;
-    margin-bottom:20px;
-    box-shadow:0 5px 15px rgba(0,0,0,.3);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+    transition:.3s;
+
+}
+
+.school:hover{
+
+    transform:translateY(-8px);
+
 }
 
 .school img{
-    width:100px;
-    height:100px;
+
+    width:110px;
+    height:110px;
+
     border-radius:50%;
-    background:white;
-    padding:8px;
     object-fit:contain;
+
+    border:5px solid #FB8C00;
+
+    background:white;
+
 }
 
 .school h2{
-    color:#ffe600;
+
+    color:#EF6C00;
     margin-bottom:10px;
+
 }
 
 .school p{
+
+    color:#555;
     font-size:18px;
     line-height:1.8;
+
 }
+
+/* ปุ่ม */
 
 .btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:12px 25px;
-    background:white;
-    color:#dd191d;
-    text-decoration:none;
-    border-radius:30px;
-    font-weight:bold;
+
+display:inline-block;
+
+margin-top:20px;
+
+padding:12px 30px;
+
+background:#EF6C00;
+
+color:white;
+
+text-decoration:none;
+
+border-radius:30px;
+
+font-weight:bold;
+
+transition:.3s;
+
 }
 
-footer{
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
-    background:rgba(0,0,0,.25);
+.btn:hover{
+
+background:#D84315;
+
+transform:scale(1.05);
+
 }
+
+/* Footer */
+
+footer{
+
+margin-top:40px;
+
+text-align:center;
+
+padding:20px;
+
+background:rgba(0,0,0,.25);
+
+color:white;
+
+}
+
+@media(max-width:768px){
+
+.school{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.school img{
+
+margin-bottom:15px;
+
+}
+
+nav a{
+
+display:inline-block;
+margin:8px;
+
+}
+
+}
+
 </style>
 
 </head>
@@ -102,52 +192,77 @@ footer{
 <body>
 
 <nav>
-<a href="index.html">หน้าแรก</a>
-<a href="profile.html">ประวัติส่วนตัว</a>
-<a href="education.html">ประวัติการศึกษา</a>
-<a href="award.html">ผลงาน</a>
-<a href="contact.html">ติดต่อ</a>
+<a href="index.html">🏠 หน้าแรก</a>
+<a href="profile.html">👤 ประวัติส่วนตัว</a>
+<a href="education.html">🎓 ประวัติการศึกษา</a>
+<a href="award.html">🏆 ผลงาน</a>
+<a href="contact.html">📞 ติดต่อ</a>
 </nav>
 
 <div class="container">
 
-<h1>ประวัติการศึกษา</h1>
+<h1>🎓 ประวัติการศึกษา</h1>
 
 <div class="school">
-<img src="images/anuban.png" alt="โลโก้โรงเรียนอนุบาลพนัสศึกษาลัย">
+
+<img src="images/primary.png" alt="โรงเรียนประถม">
+
 <div>
-<h2>🎓 ระดับประถมศึกษา</h2>
-<p><strong>โรงเรียนเทศบาลดอนหัวฬ่อ1</strong></p>
+
+<h2>ระดับประถมศึกษา</h2>
+
+<p><strong>โรงเรียนเทศบาลดอนหัวฬ่อ 1</strong></p>
+
 <p>สำเร็จการศึกษาระดับประถมศึกษา</p>
+
 </div>
+
 </div>
 
 <div class="school">
-<img src="images/wattana.png" alt="โลโก้โรงเรียนวัฒนานุศาสน์">
+
+<img src="images/highschool.png" alt="โรงเรียนมัธยม">
+
 <div>
-<h2>🎓 ระดับมัธยมศึกษาตอนต้น</h2>
+
+<h2>ระดับมัธยมศึกษาตอนต้น</h2>
+
 <p><strong>โรงเรียนพานทอง</strong></p>
+
 <p>สำเร็จการศึกษาระดับมัธยมศึกษาตอนต้น</p>
+
 </div>
+
 </div>
 
 <div class="school">
-<img src="images/phanthong.png" alt="โลโก้โรงเรียนพานทอง">
+
+<img src="images/college.png" alt="โรงเรียนปัจจุบัน">
+
 <div>
-<h2>🎓 ระดับมัธยมศึกษาตอนปลาย</h2>
+
+<h2>ระดับมัธยมศึกษาตอนปลาย</h2>
+
 <p><strong>โรงเรียนพานทอง (ต้นสน)</strong></p>
+
 <p>กำลังศึกษาชั้นมัธยมศึกษาปีที่ 6/1</p>
+
 </div>
+
 </div>
 
 <div style="text-align:center;">
+
 <a href="index.html" class="btn">🏠 กลับหน้าหลัก</a>
+
 </div>
 
 </div>
 
 <footer>
-© 2026 Portfolio | นาย กิตติคุณ มนต์ขจรเดชา
+
+© 2026 Portfolio | นายกิตติคุณ มนต์ขจรเดชา
+
 </footer>
 
 </body>
