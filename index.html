@@ -1,137 +1,321 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio นาย กิตติคุณ</title>
+<style>
 
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family: "Sarabun", sans-serif;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Sarabun",sans-serif;
+}
 
-        body{
-            background: linear-gradient(135deg,#dd191d,#ff8c42);
-            color:white;
-        }
 
-        /* เมนู */
-        nav{
-            background: rgba(0,0,0,0.25);
-            padding:15px;
-            text-align:center;
-            position: sticky;
-            top:0;
-        }
+body{
 
-        nav a{
-            color:white;
-            text-decoration:none;
-            margin:0 15px;
-            font-size:18px;
-            font-weight:bold;
-            transition:0.3s;
-        }
+    background:linear-gradient(135deg,#ffd6eb,#ffb6d9,#ff69b4);
+    color:#d63384;
+    min-height:100vh;
+    overflow-x:hidden;
 
-        nav a:hover{
-            color:yellow;
-        }
+}
 
-        /* กล่องเนื้อหา */
-        .container{
-            width:80%;
-            max-width:900px;
-            margin:40px auto;
-            background:rgba(255,255,255,0.15);
-            padding:30px;
-            border-radius:20px;
-            text-align:center;
-            box-shadow:0 10px 20px rgba(0,0,0,0.3);
-            backdrop-filter: blur(5px);
-        }
 
-        img{
-            width:220px;
-            height:220px;
-            border-radius:50%;
-            border:6px solid white;
-            object-fit:cover;
-            margin-bottom:20px;
-            box-shadow:0 5px 15px rgba(0,0,0,0.4);
-        }
+/* เมฆคิตตี้ */
 
-        h1{
-            font-size:40px;
-            margin-bottom:10px;
-        }
+.cloud{
 
-        h2{
-            color:#ffe600;
-            margin-bottom:20px;
-        }
+    position:fixed;
+    width:180px;
+    height:50px;
+    background:white;
+    border-radius:50px;
+    opacity:.7;
+    animation:moveCloud 35s linear infinite;
+    z-index:1;
 
-        p{
-            font-size:20px;
-            margin:10px 0;
-        }
+}
 
-        .btn{
-            display:inline-block;
-            margin-top:20px;
-            padding:12px 25px;
-            background:white;
-            color:#dd191d;
-            text-decoration:none;
-            border-radius:30px;
-            font-weight:bold;
-            transition:0.3s;
-        }
 
-        .btn:hover{
-            background:#ffe600;
-            transform:scale(1.05);
-        }
+.cloud:before,
+.cloud:after{
 
-        footer{
-            text-align:center;
-            padding:20px;
-            margin-top:40px;
-            background:rgba(0,0,0,0.25);
-        }
-    </style>
+    content:"";
+    position:absolute;
+    background:white;
+    border-radius:50%;
 
-</head>
+}
 
-<body>
 
-    <nav>
-        <a href="profile.html">ประวัติส่วนตัว</a>
-        <a href="education.html">ประวัติการศึกษา</a>
-        <a href="award.html">ผลงาน</a>
-        <a href="contact.html">ช่องทางการติดต่อ</a>
-    </nav>
+.cloud:before{
 
-    <div class="container">
+    width:60px;
+    height:60px;
+    top:-25px;
+    left:30px;
 
-        <img src="images/IMG_7334.JPG" alt="รูปภาพ">
+}
 
-        <h1>นาย กิตติคุณ มนต์ขจรเดชา</h1>
-        <h2>Portfolio</h2>
 
-        <p>🎓 นักเรียนชั้นมัธยมศึกษาปีที่ 6/1</p>
-        <p>🏫 โรงเรียนพานทอง</p>
+.cloud:after{
 
-        <a href="profile.html" class="btn">
-            ดูประวัติส่วนตัว
-        </a>
+    width:50px;
+    height:50px;
+    top:-20px;
+    right:30px;
 
-    </div>
+}
 
-    <footer>
-        © 2026 Portfolio | นาย กิตติคุณ
-    </footer>
 
-</body>
+@keyframes moveCloud{
+
+    from{
+        left:-250px;
+    }
+
+    to{
+        left:100%;
+    }
+
+}
+
+
+
+/* เมนู */
+
+nav{
+
+    background:rgba(255,105,180,.85);
+    padding:18px;
+    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:20;
+    backdrop-filter:blur(10px);
+
+}
+
+
+nav a{
+
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-size:18px;
+    font-weight:bold;
+    transition:.3s;
+    padding:8px 15px;
+    border-radius:25px;
+
+}
+
+
+nav a:hover{
+
+    background:white;
+    color:#ff1493;
+
+}
+
+
+
+/* กล่อง */
+
+.container{
+
+    width:80%;
+    max-width:900px;
+    margin:50px auto;
+    background:rgba(255,255,255,.85);
+    padding:40px;
+    border-radius:35px;
+    text-align:center;
+    border:4px solid #ff9ecf;
+    box-shadow:0 10px 30px rgba(255,20,147,.3);
+    position:relative;
+    z-index:10;
+    animation:show 1s;
+
+}
+
+
+@keyframes show{
+
+from{
+
+opacity:0;
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+
+
+/* รูป */
+
+img{
+
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    border:7px solid #ff69b4;
+    object-fit:cover;
+    margin-bottom:20px;
+    box-shadow:0 0 25px #ffb6d9;
+    transition:.4s;
+
+}
+
+
+img:hover{
+
+    transform:scale(1.08);
+
+}
+
+
+
+/* หัวข้อ */
+
+
+h1{
+
+    font-size:40px;
+    color:#ff1493;
+    text-shadow:2px 2px #ffd1e8;
+
+}
+
+
+h2{
+
+    color:#ff69b4;
+    margin:20px;
+
+}
+
+
+p{
+
+    font-size:20px;
+    margin:10px;
+    color:#ad1457;
+
+}
+
+
+
+/* ปุ่ม */
+
+.btn{
+
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 35px;
+    background:linear-gradient(90deg,#ff69b4,#ff1493);
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.3s;
+    box-shadow:0 5px 15px rgba(255,20,147,.3);
+
+}
+
+
+.btn:hover{
+
+    background:#ff1493;
+    transform:scale(1.1);
+
+}
+
+
+
+/* หัวใจลอย */
+
+
+.heart{
+
+    position:fixed;
+    color:#ff1493;
+    font-size:30px;
+    animation:heart 10s linear infinite;
+    z-index:2;
+
+}
+
+
+@keyframes heart{
+
+from{
+
+transform:translateY(100vh);
+
+}
+
+to{
+
+transform:translateY(-100px);
+
+}
+
+}
+
+
+
+/* footer */
+
+footer{
+
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+    background:rgba(255,105,180,.7);
+    color:white;
+
+}
+
+
+
+/* มือถือ */
+
+@media(max-width:600px){
+
+h1{
+
+font-size:28px;
+
+}
+
+nav a{
+
+display:inline-block;
+margin:5px;
+font-size:14px;
+
+}
+
+.container{
+
+width:90%;
+padding:25px;
+
+}
+
+img{
+
+width:160px;
+height:160px;
+
+}
+
+}
+
+</style>
