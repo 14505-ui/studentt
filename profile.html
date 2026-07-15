@@ -4,37 +4,121 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio | ประวัติส่วนตัว</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#FFA500,#FF8C00,#FF6F00);
+    min-height:100vh;
+}
+
+/* เมนู */
+nav{
+    background:#E65100;
+    display:flex;
+    justify-content:center;
+    padding:18px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    padding:10px 20px;
+    border-radius:25px;
+    transition:0.3s;
+    font-weight:bold;
+}
+
+nav a:hover{
+    background:white;
+    color:#E65100;
+}
+
+/* กล่องข้อมูล */
+.container{
+    width:700px;
+    max-width:90%;
+    margin:50px auto;
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+    text-align:center;
+}
+
+img{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #FF9800;
+}
+
+h1{
+    color:#E65100;
+    margin:20px 0;
+}
+
+h2{
+    color:#333;
+}
+
+.info{
+    text-align:left;
+    margin-top:25px;
+    font-size:18px;
+    line-height:2;
+}
+
+.about{
+    margin-top:25px;
+    color:#555;
+    line-height:1.8;
+}
+
+hr{
+    margin:25px 0;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:#FF6F00;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#E65100;
+}
+</style>
+
 </head>
 
 <body>
 
-<!-- พื้นหลังตกแต่ง -->
-<div class="bg-circle circle1"></div>
-<div class="bg-circle circle2"></div>
-
-<header>
-
-<nav class="navbar">
-
-<div class="logo">🌐 Portfolio</div>
-
-<ul>
-<li><a href="index.html">หน้าแรก</a></li>
-<li><a href="profile.html" class="active">ประวัติ</a></li>
-<li><a href="hobby.html">งานอดิเรก</a></li>
-<li><a href="skills.html">ทักษะ</a></li>
-<li><a href="achievement.html">ผลงาน</a></li>
-<li><a href="contact.html">ติดต่อ</a></li>
-</ul>
-
+<nav>
+    <a href="index.html">หน้าแรก</a>
+    <a href="profile.html">ประวัติ</a>
+    <a href="hobby.html">งานอดิเรก</a>
+    <a href="skills.html">ทักษะ</a>
+    <a href="achievement.html">ผลงาน</a>
+    <a href="contact.html">ติดต่อ</a>
 </nav>
 
-</header>
+<div class="container">
 
-<section class="profile-card">
-
-<img src="images/profile.jpg" class="profile-img" alt="รูปโปรไฟล์">
+<img src="images/profile.jpg" alt="รูปภาพส่วนตัว">
 
 <h1>ประวัติส่วนตัว</h1>
 
@@ -45,41 +129,27 @@
 <hr>
 
 <div class="info">
-
 <p>🎂 วันเกิด : 00/00/0000</p>
 <p>🎓 กำลังศึกษา : วิทยาลัย...</p>
 <p>📚 สาขา : เทคโนโลยีสารสนเทศ</p>
-<p>🏠 จังหวัด : ........</p>
+<p>🏠 จังหวัด : ............</p>
 <p>📧 Email : example@gmail.com</p>
 <p>📞 โทร : 08x-xxx-xxxx</p>
-
 </div>
 
 <hr>
 
-<h3>เกี่ยวกับตัวเอง</h3>
+<h2>เกี่ยวกับตัวเอง</h2>
 
 <p class="about">
-เป็นคนที่ชอบเรียนรู้สิ่งใหม่ ๆ สนใจการเขียนเว็บไซต์
-มีความรับผิดชอบ ทำงานเป็นทีมได้ดี
-และพร้อมพัฒนาทักษะของตนเองอยู่เสมอ
+เป็นคนที่ชอบเรียนรู้สิ่งใหม่ ๆ สนใจด้านการเขียนโปรแกรม
+การออกแบบเว็บไซต์ และพร้อมพัฒนาตนเองอยู่เสมอ
 </p>
 
-<div class="buttons">
-
-<a href="https://facebook.com/" target="_blank">Facebook</a>
-
-<a href="https://github.com/" target="_blank">GitHub</a>
-
-<a href="mailto:example@gmail.com">Email</a>
+<a class="btn" href="https://facebook.com" target="_blank">Facebook</a>
+<a class="btn" href="https://github.com" target="_blank">GitHub</a>
 
 </div>
-
-</section>
-
-</body>
-</html>
-</section>
 
 </body>
 </html>
