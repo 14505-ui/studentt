@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portfolio นาย กิตติคุณ</title>
+
 <style>
 
 *{
@@ -6,7 +14,6 @@
     box-sizing:border-box;
     font-family:"Sarabun",sans-serif;
 }
-
 
 body{
 
@@ -18,7 +25,7 @@ body{
 }
 
 
-/* เมฆคิตตี้ */
+/* เมฆ */
 
 .cloud{
 
@@ -33,7 +40,6 @@ body{
 
 }
 
-
 .cloud:before,
 .cloud:after{
 
@@ -44,7 +50,6 @@ body{
 
 }
 
-
 .cloud:before{
 
     width:60px;
@@ -53,7 +58,6 @@ body{
     left:30px;
 
 }
-
 
 .cloud:after{
 
@@ -78,13 +82,38 @@ body{
 }
 
 
+/* หัวใจ */
+
+.heart{
+
+    position:fixed;
+    font-size:30px;
+    animation:heartMove 10s linear infinite;
+    z-index:2;
+
+}
+
+
+@keyframes heartMove{
+
+    from{
+        transform:translateY(100vh);
+    }
+
+    to{
+        transform:translateY(-100px);
+    }
+
+}
+
+
 
 /* เมนู */
 
 nav{
 
     background:rgba(255,105,180,.85);
-    padding:18px;
+    padding:15px;
     text-align:center;
     position:sticky;
     top:0;
@@ -102,56 +131,33 @@ nav a{
     font-size:18px;
     font-weight:bold;
     transition:.3s;
-    padding:8px 15px;
-    border-radius:25px;
 
 }
 
 
 nav a:hover{
 
-    background:white;
-    color:#ff1493;
+    color:#ffe600;
 
 }
 
 
 
-/* กล่อง */
+/* กล่องเนื้อหา */
 
 .container{
 
     width:80%;
     max-width:900px;
-    margin:50px auto;
+    margin:40px auto;
     background:rgba(255,255,255,.85);
-    padding:40px;
-    border-radius:35px;
+    padding:30px;
+    border-radius:30px;
     text-align:center;
     border:4px solid #ff9ecf;
     box-shadow:0 10px 30px rgba(255,20,147,.3);
     position:relative;
     z-index:10;
-    animation:show 1s;
-
-}
-
-
-@keyframes show{
-
-from{
-
-opacity:0;
-transform:translateY(40px);
-
-}
-
-to{
-
-opacity:1;
-transform:translateY(0);
-
-}
 
 }
 
@@ -164,31 +170,30 @@ img{
     width:220px;
     height:220px;
     border-radius:50%;
-    border:7px solid #ff69b4;
+    border:6px solid #ff69b4;
     object-fit:cover;
     margin-bottom:20px;
     box-shadow:0 0 25px #ffb6d9;
-    transition:.4s;
+    transition:.3s;
 
 }
 
 
 img:hover{
 
-    transform:scale(1.08);
+    transform:scale(1.05);
 
 }
 
 
 
-/* หัวข้อ */
-
+/* ข้อความ */
 
 h1{
 
     font-size:40px;
+    margin-bottom:10px;
     color:#ff1493;
-    text-shadow:2px 2px #ffd1e8;
 
 }
 
@@ -196,7 +201,7 @@ h1{
 h2{
 
     color:#ff69b4;
-    margin:20px;
+    margin-bottom:20px;
 
 }
 
@@ -204,7 +209,7 @@ h2{
 p{
 
     font-size:20px;
-    margin:10px;
+    margin:10px 0;
     color:#ad1457;
 
 }
@@ -216,15 +221,14 @@ p{
 .btn{
 
     display:inline-block;
-    margin-top:25px;
-    padding:14px 35px;
-    background:linear-gradient(90deg,#ff69b4,#ff1493);
+    margin-top:20px;
+    padding:12px 25px;
+    background:#ff69b4;
     color:white;
     text-decoration:none;
     border-radius:30px;
     font-weight:bold;
     transition:.3s;
-    box-shadow:0 5px 15px rgba(255,20,147,.3);
 
 }
 
@@ -232,39 +236,7 @@ p{
 .btn:hover{
 
     background:#ff1493;
-    transform:scale(1.1);
-
-}
-
-
-
-/* หัวใจลอย */
-
-
-.heart{
-
-    position:fixed;
-    color:#ff1493;
-    font-size:30px;
-    animation:heart 10s linear infinite;
-    z-index:2;
-
-}
-
-
-@keyframes heart{
-
-from{
-
-transform:translateY(100vh);
-
-}
-
-to{
-
-transform:translateY(-100px);
-
-}
+    transform:scale(1.05);
 
 }
 
@@ -277,11 +249,10 @@ footer{
     text-align:center;
     padding:20px;
     margin-top:40px;
-    background:rgba(255,105,180,.7);
+    background:rgba(255,105,180,.8);
     color:white;
 
 }
-
 
 
 /* มือถือ */
@@ -289,33 +260,91 @@ footer{
 @media(max-width:600px){
 
 h1{
-
-font-size:28px;
-
+    font-size:28px;
 }
 
 nav a{
 
-display:inline-block;
-margin:5px;
-font-size:14px;
+    display:inline-block;
+    margin:5px;
+    font-size:14px;
 
 }
 
 .container{
 
-width:90%;
-padding:25px;
-
-}
-
-img{
-
-width:160px;
-height:160px;
+    width:90%;
 
 }
 
 }
 
 </style>
+
+</head>
+
+
+<body>
+
+
+<div class="cloud" style="top:100px;"></div>
+<div class="cloud" style="top:230px;animation-duration:50s;"></div>
+
+<div class="heart" style="left:15%;">💖</div>
+<div class="heart" style="left:50%;animation-duration:12s;">🎀</div>
+<div class="heart" style="left:80%;animation-duration:8s;">🌸</div>
+
+
+
+<nav>
+
+<a href="profile.html">ประวัติส่วนตัว</a>
+
+<a href="education.html">ประวัติการศึกษา</a>
+
+<a href="award.html">ผลงาน</a>
+
+<a href="contact.html">ช่องทางการติดต่อ</a>
+
+</nav>
+
+
+
+<div class="container">
+
+
+<img src="images/IMG_7334.JPG" alt="รูปภาพ">
+
+
+<h1>🎀 นาย กิตติคุณ มนต์ขจรเดชา 🎀</h1>
+
+
+<h2>💖 Portfolio 💖</h2>
+
+
+<p>🎓 นักเรียนชั้นมัธยมศึกษาปีที่ 6/1</p>
+
+<p>🏫 โรงเรียนพานทอง</p>
+
+
+
+<a href="profile.html" class="btn">
+
+💗 ดูประวัติส่วนตัว
+
+</a>
+
+
+</div>
+
+
+
+<footer>
+
+© 2026 Portfolio | นาย กิตติคุณ 🎀
+
+</footer>
+
+
+</body>
+</html>
