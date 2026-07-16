@@ -3,515 +3,464 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Portfolio | ประวัติส่วนตัว</title>
-
+<title>ประวัติส่วนตัว | พอร์ตโฟลิโอ สาขาพลศึกษา</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700;800&family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
+  :root{
+    --bg-0:#12181a;
+    --bg-1:#1b2622;
+    --track-red:#a83a1e;
+    --accent:#ff6a3d;
+    --gold:#e8b84b;
+    --ink:#f4f1ea;
+    --ink-dim:#b9c2bd;
+    --line:rgba(244,241,234,0.08);
+    --glow-orange: rgba(255, 106, 61, 0.25);
+    --glow-gold: rgba(232, 184, 75, 0.2);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    font-family:'Sarabun',sans-serif;
+    color:var(--ink);
+    background:var(--bg-0);
+    overflow:hidden;
+  }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Segoe UI",sans-serif;
-}
+  /* ---------- night football stadium background ---------- */
+  .field-bg{
+    position:fixed;inset:0;z-index:0;
+    background:
+      radial-gradient(ellipse 90% 55% at 50% 6%, rgba(255,205,160,0.10), transparent 60%),
+      linear-gradient(180deg, #060a0b 0%, #0a1416 44%, #0d1a17 54%, #16311f 56%, #0e2216 100%);
+  }
+  .field-bg::before{
+    content:"";position:absolute;inset:0 0 55% 0;
+    background-image:
+      radial-gradient(1.4px 1.4px at 12% 20%, rgba(244,241,234,.6), transparent),
+      radial-gradient(1.4px 1.4px at 27% 9%, rgba(244,241,234,.4), transparent),
+      radial-gradient(1px 1px at 44% 24%, rgba(244,241,234,.5), transparent),
+      radial-gradient(1.4px 1.4px at 61% 11%, rgba(244,241,234,.35), transparent),
+      radial-gradient(1px 1px at 76% 27%, rgba(244,241,234,.5), transparent);
+    animation:twinkle 5s ease-in-out infinite;
+  }
+  @keyframes twinkle{0%,100%{opacity:.65;}50%{opacity:1;}}
+  .stands{
+    position:fixed;left:-2%;right:-2%;bottom:53.5%;height:8.5%;z-index:0;
+    background:
+      repeating-linear-gradient(180deg, rgba(0,0,0,0.3) 0 2px, transparent 2px 6px),
+      linear-gradient(180deg, #050708 0%, #0a1214 100%);
+    clip-path:polygon(0% 100%,0% 42%,6% 30%,14% 46%,22% 24%,30% 42%,38% 20%,46% 40%,54% 20%,62% 42%,70% 24%,78% 46%,86% 30%,94% 42%,100% 30%,100% 100%);
+  }
+  .pitch-lines{position:fixed;left:0;right:0;bottom:0;height:46%;z-index:0;opacity:.55;}
 
-body{
-    background:linear-gradient(135deg,#ffd6eb,#ffb6d9,#ff69b4);
-    min-height:100vh;
-    overflow-x:hidden;
-    position:relative;
-}
+  /* ---------- app shell ---------- */
+  .app{
+    position:relative;z-index:1;
+    height:100dvh;width:100%;
+    display:flex;flex-direction:column;
+  }
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px 6vw 0;
+  }
+  .brand{
+    font-family:'Kanit',sans-serif;font-weight:700;letter-spacing:.06em;
+    font-size:14px;color:var(--ink-dim);text-transform:uppercase;
+  }
+  .brand b{color:var(--accent);}
+  .lane-tag{
+    font-family:'Kanit',sans-serif;font-weight:600;font-size:12px;
+    color:var(--ink-dim);letter-spacing:.15em;text-transform:uppercase;
+    border:1px solid var(--line);padding:6px 14px;border-radius:2px;
+  }
+  .lane-tag b{color:var(--gold);}
 
-/* เมฆ */
-
-.cloud{
-    position:fixed;
-    background:white;
-    width:180px;
-    height:50px;
-    border-radius:50px;
-    opacity:.7;
-    animation:cloudMove linear infinite;
-    z-index:1;
-}
-
-.cloud:before,
-.cloud:after{
-    content:"";
-    position:absolute;
-    background:white;
-    border-radius:50%;
-}
-
-.cloud:before{
-    width:60px;
-    height:60px;
-    top:-30px;
-    left:30px;
-}
-
-.cloud:after{
-    width:50px;
-    height:50px;
-    top:-20px;
-    right:30px;
-}
-
-.cloud1{
-    top:100px;
-    animation-duration:35s;
-}
-
-.cloud2{
-    top:220px;
-    animation-duration:50s;
-}
-
-@keyframes cloudMove{
-
-    from{
-        left:-250px;
-    }
-
-    to{
-        left:100%;
-    }
-
-}
-
-
-/* หัวใจลอย */
-
-.heart{
-    position:fixed;
-    color:#ff1493;
-    font-size:30px;
-    animation:heartMove linear infinite;
-    z-index:2;
-}
-
-@keyframes heartMove{
-
-    from{
-        transform:translateY(100vh);
-        opacity:0;
-    }
-
-    to{
-        transform:translateY(-100px);
-        opacity:1;
-    }
-
-}
-
-
-/* โบว์ */
-
-.ribbon{
-    position:fixed;
-    right:50px;
-    top:50px;
-    width:90px;
-    height:70px;
-    z-index:3;
-}
-
-
-.ribbon span{
-    position:absolute;
-    width:40px;
-    height:55px;
-    background:#ff1493;
-    border-radius:50%;
-}
-
-
-.ribbon span:first-child{
-    left:0;
-    transform:rotate(-30deg);
-}
-
-
-.ribbon span:nth-child(2){
-    right:0;
-    transform:rotate(30deg);
-}
-
-
-.ribbon b{
-    position:absolute;
-    background:#ffd700;
-    width:30px;
-    height:30px;
-    border-radius:50%;
-    left:30px;
-    top:20px;
-}
-
-
-/* เมนู */
-
-nav{
-
-    background:rgba(255,105,180,.85);
-    padding:18px;
-    text-align:center;
-    position:sticky;
-    top:0;
-    z-index:20;
-    backdrop-filter:blur(10px);
-
-}
-
-
-nav a{
-
-    color:white;
-    text-decoration:none;
-    margin:10px;
-    padding:10px 20px;
-    border-radius:30px;
-    font-weight:bold;
-    transition:.3s;
-
-}
-
-
-nav a:hover{
-
-    background:white;
-    color:#ff1493;
-
-}
-
-
-/* กล่องข้อมูล */
-
-
-.container{
-
-    width:700px;
-    max-width:90%;
-    margin:50px auto;
-    background:white;
-    padding:35px;
-    border-radius:30px;
-    text-align:center;
-    border:4px solid #ff9ecf;
-    box-shadow:0 10px 30px rgba(255,20,147,.3);
-    position:relative;
-    z-index:10;
-    animation:show 1s;
-
-}
-
-
-@keyframes show{
-
-from{
-    opacity:0;
-    transform:translateY(40px);
-}
-
-to{
+  .stage{
+    flex:1;position:relative;min-height:0;
+  }
+  .page{
+    position:absolute;inset:0;
+    display:flex;align-items:center;
+    padding:2vh 6vw 12vh;
     opacity:1;
-    transform:translateY(0);
-}
+    overflow-y:auto;
+  }
 
-}
+  /* ---------- Profile Layout ---------- */
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(280px, 1fr) 2fr;
+    gap: 30px;
+    align-items: stretch;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
 
-/* รูปโปรไฟล์ */
+  /* === [ฝั่งซ้าย] กล่องตกแต่งสำหรับรูปภาพ === */
+  .photo-card {
+    background: rgba(18, 24, 26, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(244, 241, 234, 0.05);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* ขอบนีออนล้อมรอบรูปเท่ๆ */
+  .photo-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--gold));
+  }
 
-img{
+  /* กรอบสปอร์ตของตัวรูปภาพ */
+  .photo-slot-premium {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 10px;
+    border: 2px solid var(--gold);
+    background: linear-gradient(135deg, #1b2622 0%, #12181a 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px var(--glow-gold);
+    transition: all 0.3s ease;
+  }
+  .photo-slot-premium img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .photo-slot-premium .hint {
+    text-align: center;
+    color: var(--ink-dim);
+    font-size: 13px;
+    font-family: 'Kanit', sans-serif;
+    padding: 15px;
+  }
+  .photo-slot-premium .hint svg {
+    color: var(--accent);
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 5px var(--accent));
+  }
+  
+  .photo-slot-premium:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 25px var(--glow-orange);
+    transform: scale(1.02);
+  }
 
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    object-fit:cover;
-    border:6px solid #ff69b4;
-    box-shadow:0 0 25px #ffb6d9;
-    transition:.4s;
+  /* ป้ายชื่อใต้รูปสไตล์เสื้อกีฬา */
+  .player-tag {
+    background: linear-gradient(90deg, rgba(255, 106, 61, 0.1), rgba(232, 184, 75, 0.1));
+    border: 1px solid rgba(255, 106, 61, 0.2);
+    border-radius: 8px;
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    font-family: 'Kanit', sans-serif;
+    margin-top: 15px;
+  }
+  .player-tag .jersey-number {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 2px;
+    text-shadow: 0 0 10px var(--glow-orange);
+  }
+  .player-tag .position-title {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
 
-}
+  /* === [ฝั่งขวา] กล่องข้อมูลประวัติส่วนตัว === */
+  .profile-card {
+    background: rgba(27, 38, 34, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(244, 241, 234, 0.08);
+    border-top: 3px solid var(--accent);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
+  .eyebrow{
+    font-family:'Kanit',sans-serif;color:var(--accent);font-weight:600;
+    letter-spacing:.2em;text-transform:uppercase;font-size:13px;margin-bottom:8px;
+  }
+  h2{font-family:'Kanit',sans-serif;}
 
-img:hover{
+  /* หมวดหมู่ข้อมูล */
+  .info-section {
+    margin-bottom: 20px;
+  }
+  .section-title {
+    font-family: 'Kanit', sans-serif;
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid rgba(255, 106, 61, 0.2);
+    padding-bottom: 4px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 24px;
+  }
+  .info-item {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 6px;
+  }
+  .info-item .label {
+    font-family: 'Kanit', sans-serif;
+    font-size: 11px;
+    color: var(--gold);
+    margin-bottom: 2px;
+  }
+  .info-item .value {
+    font-size: 15px;
+    color: var(--ink);
+  }
 
-    transform:scale(1.08);
+  /* ความสามารถพิเศษ */
+  .skills-container {
+    background: rgba(244, 241, 234, 0.02);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 12px 16px;
+  }
+  .skills-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+  }
+  .skill-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--ink-dim);
+  }
+  .skill-item svg {
+    color: var(--accent);
+    flex-shrink: 0;
+  }
 
-}
+  .motto {
+    margin-top: 15px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--gold);
+    border-left: 3px solid var(--gold);
+    padding-left: 12px;
+    font-style: italic;
+  }
 
+  /* ---------- buttons & bottom navigation ---------- */
+  .nav-bar{
+    position:absolute;left:0;right:0;bottom:0;z-index:2;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 6vw 26px;
+  }
+  .lane-dots{display:flex;gap:10px;align-items:center;}
+  .dot{
+    width:9px;height:9px;border-radius:50%;background:rgba(244,241,234,0.25);
+    transition:all .3s ease;
+  }
+  .dot.on{background:var(--accent);width:26px;border-radius:5px;}
+  .nav-side{display:flex;gap:12px;}
 
-/* หัวข้อ */
+  .btn{
+    font-family:'Kanit',sans-serif;font-weight:600;letter-spacing:.03em;
+    border:none;cursor:pointer;border-radius:4px;text-decoration:none;
+    padding:12px 24px;font-size:14px;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{
+    background:var(--accent);color:#191008;
+    box-shadow:0 8px 20px rgba(255,106,61,0.25);
+  }
+  .btn-ghost{
+    background:transparent;color:var(--ink);border:1px solid rgba(244,241,234,0.25);
+  }
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
 
-h1{
-
-    color:#ff1493;
-    margin:20px 0;
-    text-shadow:2px 2px #ffd1e8;
-
-}
-
-
-h2{
-
-    color:#ff69b4;
-    margin-bottom:10px;
-
-}
-
-
-
-/* เส้น */
-
-hr{
-
-    border:none;
-    height:2px;
-    background:#ffb6d9;
-    margin:25px 0;
-
-}
-
-
-
-/* ข้อมูล */
-
-.info{
-
-    text-align:left;
-    margin-top:25px;
-    font-size:18px;
-    line-height:2;
-    color:#c2185b;
-
-}
-
-
-.about{
-
-    color:#ad1457;
-    line-height:1.8;
-    margin-top:20px;
-
-}
-
-
-/* ปุ่ม */
-
-.btn{
-
-    display:inline-block;
-    margin:20px 5px 0;
-    padding:12px 30px;
-    background:linear-gradient(90deg,#ff69b4,#ff1493);
-    color:white;
-    text-decoration:none;
-    border-radius:30px;
-    font-weight:bold;
-    transition:.3s;
-    box-shadow:0 5px 15px rgba(255,20,147,.3);
-
-}
-
-
-.btn:hover{
-
-    background:#ff1493;
-    transform:scale(1.1);
-
-}
-
-
-
-/* ตกแต่งพื้นหลัง */
-
-.flower{
-
-    position:fixed;
-    font-size:35px;
-    animation:flowerMove 10s linear infinite;
-    z-index:2;
-
-}
-
-
-@keyframes flowerMove{
-
-    from{
-
-        transform:translateY(100vh) rotate(0deg);
-
+  /* ---------- responsive ---------- */
+  @media (max-width:940px){
+    .layout{
+      grid-template-columns:1fr;
+      gap: 24px;
     }
-
-    to{
-
-        transform:translateY(-100px) rotate(360deg);
-
+    .photo-card {
+      max-width: 320px;
+      margin: 0 auto;
     }
-
-}
-
-
-
-/* มือถือ */
-
-@media(max-width:600px){
-
-
-nav a{
-
-    display:inline-block;
-    margin:5px;
-    font-size:14px;
-
-}
-
-
-.container{
-
-    padding:20px;
-
-}
-
-
-img{
-
-    width:150px;
-    height:150px;
-
-}
-
-
-.ribbon{
-
-    right:20px;
-    transform:scale(.7);
-
-}
-
-
-.info{
-
-    font-size:16px;
-
-}
-
-
-}
-
+    .info-grid, .skills-list{
+      grid-template-columns: 1fr;
+    }
+    .page{padding:2vh 6vw 20vh;}
+    .nav-bar{
+      padding:16px 6vw 20px;
+      flex-direction:column-reverse;
+      gap:14px;
+      align-items:flex-end;
+    }
+  }
 </style>
-
 </head>
-
-
 <body>
 
+<div class="field-bg"></div>
 
-<!-- เมฆ -->
+<svg class="pitch-lines" viewBox="0 0 1000 460" preserveAspectRatio="none" aria-hidden="true">
+  <line x1="0" y1="70" x2="1000" y2="70" stroke="rgba(244,241,234,0.5)" stroke-width="2"/>
+  <ellipse cx="500" cy="70" rx="150" ry="46" fill="none" stroke="rgba(244,241,234,0.5)" stroke-width="2"/>
+  <circle cx="500" cy="70" r="4" fill="rgba(244,241,234,0.6)"/>
+</svg>
 
-<div class="cloud cloud1"></div>
-<div class="cloud cloud2"></div>
+<div class="stands"></div>
 
+<div class="app">
+  <div class="topbar">
+    <div class="brand">พอร์ตโฟลิโอ <b>สาขาพลศึกษา</b></div>
+    <div class="lane-tag">SPOTLIGHT <b>02</b> / 05</div>
+  </div>
 
-<!-- โบว์ -->
+  <div class="stage">
+    <section class="page" id="page-2" aria-label="ประวัติส่วนตัว">
+      <div class="layout">
+        
+        <!-- ================= [ฝั่งซ้าย: กล่องรูปตกแต่งสุดเท่] ================= -->
+        <div class="photo-card">
+          <!-- กรอบรูปเงาสะท้อนแสง -->
+          <div class="photo-slot-premium">
+            <img src="your-photo.jpg" alt="รูปโปรไฟล์ของคุณ" onerror="this.style.display='none'">
+            <div class="hint">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                <circle cx="12" cy="13" r="4"/>
+              </svg>
+              <br>วางไฟล์รูปภาพของคุณตรงนี้<br><small style="color:var(--gold);">(ขนาดที่แนะนำ 3:4)</small>
+            </div>
+          </div>
+          
+          <!-- ป้ายชื่อสไตล์แท็กนักกีฬา (คุณสามารถเปลี่ยนหมายเลขเสื้อและตำแหน่งได้) -->
+          <div class="player-tag">
+            <div class="jersey-number">NO. 10</div>
+            <div class="position-title">PHYSICAL EDUCATION CANDIDATE</div>
+          </div>
+        </div>
 
-<div class="ribbon">
+        <!-- ================= [ฝั่งขวา: กล่องข้อความประวัติส่วนตัว] ================= -->
+        <div class="profile-card">
+          <div>
+            <div class="eyebrow">Personal Profile</div>
+            <h2 style="font-size:clamp(24px,3.5vw,30px); font-weight:700; margin-bottom:15px; letter-spacing: 0.05em;">ประวัติส่วนตัว</h2>
+            
+            <!-- กลุ่มข้อมูล 1: ข้อมูลทั่วไป -->
+            <div class="info-section">
+              <div class="section-title">ข้อมูลส่วนตัว (General Info)</div>
+              <div class="info-grid">
+                <div class="info-item"><div class="label">ชื่อ-นามสกุล</div><div class="value">นาย / นางสาว ................................</div></div>
+                <div class="info-item"><div class="label">ชื่อเล่น / อายุ</div><div class="value">..................... (อายุ ..... ปี)</div></div>
+                <div class="info-item"><div class="label">วัน/เดือน/ปีเกิด</div><div class="value">XX / XX / 25XX</div></div>
+                <div class="info-item"><div class="label">สัญชาติ / เชื้อชาติ / ศาสนา</div><div class="value">ไทย / ไทย / พุทธ</div></div>
+              </div>
+            </div>
 
-<span></span>
-<span></span>
-<b></b>
+            <!-- กลุ่มข้อมูล 2: กายภาพและกีฬา -->
+            <div class="info-section">
+              <div class="section-title">ข้อมูลทางกายภาพและการกีฬา (Physical & Athletic)</div>
+              <div class="info-grid">
+                <div class="info-item"><div class="label">ส่วนสูง / น้ำหนัก</div><div class="value">..... ซม. / ..... กก.</div></div>
+                <div class="info-item"><div class="label">โรงเรียนที่กำลังศึกษา</div><div class="value">โรงเรียน...................... ม.6</div></div>
+                <div class="info-item"><div class="label">กีฬาที่ถนัด / ตำแหน่งในทีม</div><div class="value">..................... / .....................</div></div>
+                <div class="info-item"><div class="label">งานอดิเรก</div><div class="value">.....................</div></div>
+              </div>
+            </div>
 
+            <!-- กลุ่มข้อมูล 3: ความสามารถพิเศษที่จำเป็นต่อพลศึกษา -->
+            <div class="info-section" style="margin-bottom: 0;">
+              <div class="section-title">ความสามารถพิเศษ (Special Skills)</div>
+              <div class="skills-container">
+                <div class="skills-list">
+                  <div class="skill-item">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>การปฐมพยาบาลเบื้องต้น (First Aid & CPR)</span>
+                  </div>
+                  <div class="skill-item">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>ทักษะสันทนาการและพิธีกรนันทนาการ</span>
+                  </div>
+                  <div class="skill-item">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>ผู้ตัดสินเกมกีฬาและผู้ช่วยผู้ฝึกสอน</span>
+                  </div>
+                  <div class="skill-item">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>ภาวะผู้นำ (ประธานชมรม/กัปตันทีมกีฬา)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          
+          <div class="motto">"คติประจำใจของคุณ — ใส่ประโยคที่กระตุ้นพลังบวกในการเล่นกีฬา"</div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= ปุ่มนำทางย้อนกลับและถัดไป ================= -->
+  <div class="nav-bar">
+    <div class="lane-dots">
+      <span class="dot"></span>
+      <span class="dot on"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+    <div class="nav-side">
+      <a class="btn btn-ghost" href="index.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M11 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        ย้อนกลับ
+      </a>
+      <a class="btn btn-primary" href="education.html">
+        ถัดไป
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
 </div>
-
-
-<!-- หัวใจ -->
-
-<div class="heart" style="left:10%;animation-duration:8s;">💖</div>
-
-<div class="heart" style="left:35%;animation-duration:10s;">💕</div>
-
-<div class="heart" style="left:60%;animation-duration:12s;">💗</div>
-
-<div class="heart" style="left:85%;animation-duration:9s;">💞</div>
-
-
-<!-- ดอกไม้ -->
-
-<div class="flower" style="left:20%;animation-duration:12s;">🌸</div>
-
-<div class="flower" style="left:70%;animation-duration:15s;">🌷</div>
-
-
-
-<nav>
-
-<a href="index.html">หน้าแรก</a>
-
-<a href="profile.html">ประวัติ</a>
-
-<a href="achievement.html">ผลงาน</a>
-
-<a href="contact.html">ติดต่อ</a>
-
-</nav>
-
-
-<div class="container">
-
-<img src="images/profile.jpg" alt="รูปภาพส่วนตัว">
-
-
-<h1>🎀 ประวัติส่วนตัว 🎀</h1>
-
-
-<h2>นายกิตติคุณ มนต์ขจรเดชา</h2>
-
-<p>
-<strong>ชื่อเล่น :</strong> ใบก้อน
-</p>
-
-
-<hr>
-
-
-<div class="info">
-
-<p>🎂 วันเกิด : 23/08/2551</p>
-
-<p>🎓 อายุ : 17 ปี</p>
-
-<p>🏠 จังหวัด : ชลบุรี</p>
-
-<p>📧 Email : panphadungxx2@gmail.com</p>
-
-<p>📞 โทร : 084-218-2905</p>
-
-
-</div>
-
-
-<hr>
-
-
-
-<p class="about">
-
-
-
-</p>
-
-
-
-
-</a>
-
-
-
-</div>
-
-
 
 </body>
-
 </html>
