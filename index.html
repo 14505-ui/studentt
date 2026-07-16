@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>หน้าแรก | พอร์ตโฟลิโอ สาขาพลศึกษา</title>
+<title>หน้าแรก | PORTFOLIO สาขาพลศึกษา</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700;800&family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
@@ -256,12 +256,17 @@
     width:100%;max-width:620px;margin:0 auto;text-align:center;
     display:flex;flex-direction:column;align-items:center;
   }
+  
+  /* แก้ไขตรงนี้: เปลี่ยนจากวงกลมเป็นสี่เหลี่ยมแนวตั้ง 3:4 ขอบมน เพื่อให้เห็นรูปเต็มตัวและชัดเจนยิ่งขึ้น */
   .hero-center .photo-slot{
-    width:min(46vw,300px);aspect-ratio:1/1;border-radius:50%;
-    border:3px solid rgba(232,184,75,0.55);
-    box-shadow:0 0 0 10px rgba(255,106,61,0.06), 0 0 60px rgba(255,167,110,0.20);
-    margin-bottom:26px;
+    width: min(50vw, 240px);    
+    aspect-ratio: 3 / 4;        
+    border-radius: 14px;        
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 0 10px rgba(255,106,61,0.06), 0 0 60px rgba(255,167,110,0.20);
+    margin-bottom: 26px;
   }
+  
   #page-1 h1{font-size:clamp(32px,5.4vw,58px);line-height:1.08;font-weight:800;}
   #page-1 h1 .accent{color:var(--accent);}
   #page-1 .role{
@@ -363,7 +368,13 @@
   /* ---------- responsive ---------- */
   @media (max-width:840px){
     #page-2 .layout{grid-template-columns:1fr;}
-    .hero-center .photo-slot{width:52vw;max-width:220px;}
+    
+    /* แก้ไขตรงนี้ด้วยเพื่อให้รองรับหน้าจอมือถือ/แท็บเล็ตแนวตั้งได้อย่างสวยงาม */
+    .hero-center .photo-slot{
+      width: 42vw;
+      max-width: 190px;
+    }
+    
     #page-2 .photo-slot{max-width:200px;}
     .info-grid{grid-template-columns:1fr;}
     .award-grid{grid-template-columns:1fr;}
@@ -457,34 +468,26 @@
   <div class="stage">
 
     <!-- PAGE 1 : INDEX -->
-           <section class="page active hero-page" id="page-1" aria-label="หน้าแรก">
-          <div class="hero-center">
+    <section class="page active hero-page" id="page-1" aria-label="หน้าแรก">
+      <div class="hero-center">
          
-            
-            <div class="photo-slot">
-              <img src="image/IMG_0616.jpeg" alt="รูปนักเรียน">
-            </div>
-
-         
+        <div class="photo-slot">
+          <img src="image/IMG_0616.jpeg" alt="รูปนักเรียน">
+        </div>
 
         <h1>สู่เส้นทาง<br><span class="accent">ครูพลศึกษา</span></h1>
         <p class="role">
           นักเรียนชั้นมัธยมศึกษาปีที่ 6 ผู้มีใจรักด้านกีฬาและการสอน
           มุ่งมั่นศึกษาต่อคณะศึกษาศาสตร์ สาขาพลศึกษา
-         
         </p>
      
         <div class="cta">
-          <div class="cta">
-  <!-- เปลี่ยนจาก button เป็น a และใส่ลิงก์ปลายทาง (เช่น profile.html หรือ about.html) -->
-  <a class="btn btn-primary" href="profile.html">
-    เข้าสู่ประวัติส่วนตัว
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </a>
-</div>
-
+          <a class="btn btn-primary" href="profile.html">
+            เข้าสู่ประวัติส่วนตัว
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
         </div>
       </div>
     </section>
