@@ -89,12 +89,12 @@
     overflow-y:auto;
   }
 
-  /* ---------- Profile Layout (ปรับปรุงให้ไม่บีบตัวเกินไปบนแท็บเล็ต) ---------- */
+  /* ---------- Profile Layout ---------- */
   .layout {
     display: grid;
     grid-template-columns: 280px 1fr;
     gap: 24px;
-    align-items: stretch;
+    align-items: center; /* แก้ไข: เปลี่ยนจาก stretch เป็น center เพื่อไม่ให้กล่องยืดตามความสูงของกันและกัน */
     width: 100%;
     max-width: 1140px;
     margin: 0 auto;
@@ -110,14 +110,13 @@
     padding: 18px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start; /* แก้ไข: จัดการวางจากบนลงล่าง ไม่ยืดระยะห่าง */
     align-items: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     position: relative;
     overflow: hidden;
   }
   
-  /* ขอบนีออนล้อมรอบรูปเท่ๆ */
   .photo-card::before {
     content: '';
     position: absolute;
@@ -125,7 +124,6 @@
     background: linear-gradient(90deg, var(--accent), var(--gold));
   }
 
-  /* กรอบสปอร์ตของตัวรูปภาพ */
   .photo-slot-premium {
     width: 100%;
     aspect-ratio: 3 / 4;
@@ -139,6 +137,7 @@
     justify-content: center;
     box-shadow: 0 0 20px var(--glow-gold);
     transition: all 0.3s ease;
+    margin-bottom: 15px; /* แก้ไข: เพิ่มระยะห่างด้านล่างสำหรับกรอบรูป */
   }
   .photo-slot-premium img {
     width: 100%;
@@ -147,7 +146,6 @@
     display: block;
   }
   
-  /* ตรวจจับเมื่อรูปภาพโหลดสำเร็จ ให้ซ่อนไอคอนคำแนะนำด้านหลัง */
   .photo-slot-premium img:not([style*="display: none"]):not([style*="display:none"]) + .hint {
     display: none !important;
   }
@@ -179,7 +177,6 @@
     transform: scale(1.02);
   }
 
-  /* ป้ายชื่อใต้รูปสไตล์เสื้อกีฬา */
   .player-tag {
     background: linear-gradient(90deg, rgba(255, 106, 61, 0.1), rgba(232, 184, 75, 0.1));
     border: 1px solid rgba(255, 106, 61, 0.2);
@@ -188,7 +185,6 @@
     padding: 10px;
     text-align: center;
     font-family: 'Kanit', sans-serif;
-    margin-top: 15px;
   }
   .player-tag .jersey-number {
     font-size: 22px;
@@ -217,7 +213,7 @@
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start; /* แก้ไข: ปรับจาก space-between เป็น flex-start เพื่อให้ความสูงกระชับพอดีกับข้อมูล */
   }
 
   .eyebrow{
@@ -226,7 +222,6 @@
   }
   h2{font-family:'Kanit',sans-serif;}
 
-  /* หมวดหมู่ข้อมูล */
   .info-section {
     margin-bottom: 18px;
   }
@@ -260,7 +255,6 @@
     color: var(--ink);
   }
 
-  /* ความสามารถพิเศษ */
   .skills-container {
     background: rgba(244, 241, 234, 0.02);
     border: 1px solid var(--line);
@@ -326,11 +320,12 @@
   }
   .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
 
-  /* ---------- responsive (ปรับความกว้างจุดหักมุมให้เหมาะสมกับ iPad/แท็บเล็ตแนวตั้ง) ---------- */
+  /* ---------- responsive ---------- */
   @media (max-width:768px){
     .layout{
       grid-template-columns:1fr;
       gap: 20px;
+      align-items: start; /* แนวมือถือ ปรับให้จัดวางจากด้านบน */
     }
     .photo-card {
       max-width: 280px;
@@ -373,10 +368,8 @@
         
         <!-- ================= [ฝั่งซ้าย: กล่องรูปตกแต่งสุดเท่] ================= -->
         <div class="photo-card">
-          <!-- กรอบรูปเงาสะท้อนแสง -->
           <div class="photo-slot-premium">
-            <!-- ใส่ชื่อไฟล์ภาพของคุณในจุดนี้ -->
-            <img src="image/IMG_0615" alt="รูปโปรไฟล์ของคุณ" onerror="this.style.display='none'">
+            <img src="image/IMG_0615.jpg" alt="รูปโปรไฟล์ของคุณ" onerror="this.style.display='none'">
             <div class="hint">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
@@ -386,7 +379,6 @@
             </div>
           </div>
           
-          <!-- ป้ายชื่อสไตล์แท็กนักกีฬา (คุณสามารถเปลี่ยนหมายเลขเสื้อและตำแหน่งได้) -->
           <div class="player-tag">
             <div class="jersey-number">NO. 10</div>
             <div class="position-title">PHYSICAL EDUCATION CANDIDATE</div>
@@ -403,9 +395,9 @@
             <div class="info-section">
               <div class="section-title">ข้อมูลส่วนตัว (General Info)</div>
               <div class="info-grid">
-                <div class="info-item"><div class="label">ชื่อ-นามสกุล</div><div class="value">นาย / นางสาว ................................</div></div>
-                <div class="info-item"><div class="label">ชื่อเล่น / อายุ</div><div class="value">..................... (อายุ ..... ปี)</div></div>
-                <div class="info-item"><div class="label">วัน/เดือน/ปีเกิด</div><div class="value">XX / XX / 25XX</div></div>
+                <div class="info-item"><div class="label">ชื่อ-นามสกุล</div><div class="value">นายเกียรติศักดิ์ รักกีฬา</div></div>
+                <div class="info-item"><div class="label">ชื่อเล่น / อายุ</div><div class="value">แชมป์ (อายุ 18 ปี)</div></div>
+                <div class="info-item"><div class="label">วัน/เดือน/ปีเกิด</div><div class="value">09 สิงหาคม 2551</div></div>
                 <div class="info-item"><div class="label">สัญชาติ / เชื้อชาติ / ศาสนา</div><div class="value">ไทย / ไทย / พุทธ</div></div>
               </div>
             </div>
@@ -414,10 +406,10 @@
             <div class="info-section">
               <div class="section-title">ข้อมูลทางกายภาพและการกีฬา (Physical & Athletic)</div>
               <div class="info-grid">
-                <div class="info-item"><div class="label">ส่วนสูง / น้ำหนัก</div><div class="value">..... ซม. / ..... กก.</div></div>
-                <div class="info-item"><div class="label">โรงเรียนที่กำลังศึกษา</div><div class="value">โรงเรียน...................... ม.6</div></div>
-                <div class="info-item"><div class="label">กีฬาที่ถนัด / ตำแหน่งในทีม</div><div class="value">..................... / .....................</div></div>
-                <div class="info-item"><div class="label">งานอดิเรก</div><div class="value">.....................</div></div>
+                <div class="info-item"><div class="label">ส่วนสูง / น้ำหนัก</div><div class="value">178 ซม. / 68 กก.</div></div>
+                <div class="info-item"><div class="label">โรงเรียนที่กำลังศึกษา</div><div class="value">โรงเรียนวิทยาศาสตร์การกีฬา ม.6</div></div>
+                <div class="info-item"><div class="label">กีฬาที่ถนัด / ตำแหน่งในทีม</div><div class="value">ฟุตบอล / มิดฟิลด์ตัวกลาง (Playmaker)</div></div>
+                <div class="info-item"><div class="label">งานอดิเรก</div><div class="value">ฝึกซ้อมแท็กติกกีฬา, วิ่งมาราธอน, ถ่ายรูปกิจกรรมโรงเรียน</div></div>
               </div>
             </div>
 
@@ -448,7 +440,7 @@
 
           </div>
           
-          <div class="motto">"คติประจำใจของคุณ — ใส่ประโยคที่กระตุ้นพลังบวกในการเล่นกีฬา"</div>
+          <div class="motto">"ระเบียบวินัยในวันนี้ คือรากฐานของชัยชนะในวันข้างหน้า"</div>
         </div>
 
       </div>
