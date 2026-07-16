@@ -352,6 +352,8 @@
     border:1px solid var(--line);
     padding:16px 20px;
     border-radius:6px;
+    text-decoration:none; /* ป้องกันลิงก์ขึ้นขีดเส้นใต้ text */
+    color:inherit; /* ให้สีข้อความคงเดิมตามระบบ */
     transition:transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
   }
   .contact-item:hover{
@@ -533,8 +535,8 @@
             </div>
           </div>
           
-          <!-- 3. Instagram -->
-          <div class="contact-item">
+          <!-- 3. Instagram (แก้ไขเป็นลิงก์ให้แล้ว) -->
+          <a href="https://www.instagram.com/gon._.bikkul?igsh=Z2lhZ3gxZ2t4MDdi&utm_source=qr" target="_blank" class="contact-item">
             <div class="ic">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -544,12 +546,12 @@
             </div>
             <div class="txt">
               <div class="label">Instagram</div>
-              <div class="value">@gon._.bikkul </div>
+              <div class="value">@gon._.bikkul</div>
             </div>
-          </div>
+          </a>
           
-          <!-- 4. Facebook -->
-          <div class="contact-item">
+          <!-- 4. Facebook (แก้ไขเป็นลิงก์ให้แล้ว) -->
+          <a href="https://www.facebook.com/share/1JQDiahVUc/?mibextid=wwXIfra" target="_blank" class="contact-item">
             <div class="ic">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -559,7 +561,7 @@
               <div class="label">Facebook</div>
               <div class="value">Kittikhun Monkajondacha</div>
             </div>
-          </div>
+          </a>
 
         </div>
         <p class="close-line">
