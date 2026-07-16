@@ -35,7 +35,6 @@
       linear-gradient(180deg, #060a0b 0%, #0a1416 44%, #0d1a17 54%, #16311f 56%, #0e2216 100%);
   }
   .field-bg::before{
-    /* stars, upper sky only */
     content:"";position:absolute;inset:0 0 55% 0;
     background-image:
       radial-gradient(1.4px 1.4px at 12% 20%, rgba(244,241,234,.6), transparent),
@@ -211,7 +210,6 @@
     overflow-y:auto;
   }
 
-  /* ดึงความแอนิเมชันให้หน้าเปิดทันที (เนื่องจากมีไฟล์เดียวเป็นหน้าการศึกษา) */
   .page.active-page {
     opacity:1;visibility:visible;
   }
@@ -223,7 +221,7 @@
   }
 
   /* ==============================================
-     [โครงสร้างใหม่] ส่วนกล่องประวัติการศึกษา 3 ใบ (Education Cards)
+     [โครงสร้างใหม่] ส่วนกล่องประวัติการศึกษา 3 ใบ
      ============================================== */
   .education-container {
     width: 100%;
@@ -231,7 +229,7 @@
     margin: 0 auto;
   }
 
-  /* ระบบ Grid 3 คอลัมน์ */
+  /* ระบบ Grid 3 คอลัมน์ที่รองรับ Responsive */
   .edu-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -241,7 +239,7 @@
     width: 100%;
   }
 
-  /* การ์ดสไตล์กล่องเทคโนโลยีล้ำสมัย */
+  /* การ์ดสไตล์กล่องโปร่งแสงพรีเมียม */
   .edu-card {
     background: rgba(27, 38, 34, 0.45);
     backdrop-filter: blur(10px);
@@ -253,12 +251,12 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   }
 
-  /* แถบสีด้านบนของการ์ดเพื่อเน้นความสำคัญ */
+  /* แถบสีด้านบนของการ์ด */
   .edu-card::before {
     content: '';
     position: absolute;
@@ -267,7 +265,7 @@
     transition: background 0.3s ease;
   }
 
-  /* เมื่อเอาเมาส์ชี้ การ์ดจะสว่างและลอยขึ้น */
+  /* เอฟเฟกต์โฮเวอร์ */
   .edu-card:hover {
     transform: translateY(-5px);
     border-color: rgba(255,106,61,0.3);
@@ -277,12 +275,13 @@
     background: var(--accent);
   }
 
-  /* ตกแต่งส่วนหัวการ์ด */
+  /* ส่วนหัวของการ์ด */
   .edu-card-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     margin-bottom: 16px;
+    width: 100%;
   }
 
   /* ป้ายช่วงปีการศึกษา */
@@ -312,7 +311,7 @@
     flex-shrink: 0;
   }
 
-  /* ข้อมูลข้างในกล่อง */
+  /* ข้อมูลรายละเอียดภายในกล่อง */
   .edu-level {
     font-family: 'Kanit', sans-serif;
     color: var(--accent);
@@ -329,8 +328,7 @@
     font-size: clamp(16px, 1.8vw, 19px);
     color: var(--ink);
     line-height: 1.4;
-    margin-bottom: 12px;
-    min-height: 50px; /* ยึดให้ระดับกล่องเท่ากัน */
+    margin-bottom: 16px;
   }
 
   .edu-details {
@@ -339,14 +337,14 @@
     line-height: 1.6;
     border-top: 1px solid var(--line);
     padding-top: 12px;
-    margin-top: auto;
+    margin-top: auto; /* ดึงรายละเอียดไว้ด้านล่างสุดเสมอให้สมดุล */
   }
 
   .edu-details strong {
     color: var(--gold);
   }
 
-  /* กล่องเป้าหมายการศึกษาต่อ */
+  /* กล่องเป้าหมายการศึกษาต่อด้านล่าง */
   .goal-box{
     background: rgba(255, 106, 61, 0.06);
     border: 1px solid rgba(255, 106, 61, 0.25);
@@ -414,14 +412,20 @@
   /* ---------- responsive ---------- */
   @media (max-width:960px){
     .edu-grid {
-      grid-template-columns: 1fr; /* ยุบเหลือคอลัมน์เดียวบนมือถือ */
+      grid-template-columns: 1fr;
       gap: 16px;
+      margin-top: 15px;
+      margin-bottom: 15px;
     }
-    .edu-school {
-      min-height: auto;
+    .page{
+      padding: 4vh 6vw 16vh;
     }
-    .page{padding:2vh 6vw 22vh;}
-    .nav-bar{padding:16px 6vw 20px;flex-direction:column-reverse;gap:14px;align-items:flex-end;}
+    .nav-bar{
+      padding:16px 6vw 20px;
+      flex-direction:row;
+      justify-content:space-between;
+      background: linear-gradient(0deg, var(--bg-0) 60%, transparent 100%);
+    }
   }
 </style>
 </head>
@@ -454,7 +458,7 @@
   <span class="spark" style="left:24%;width:2px;height:2px;bottom:28%;animation-duration:11s;animation-delay:-3s;"></span>
   <span class="spark" style="left:38%;width:2.5px;height:2.5px;bottom:34%;animation-duration:9.5s;animation-delay:-6s;"></span>
   <span class="spark" style="left:63%;width:2px;height:2px;bottom:29%;animation-duration:10s;animation-delay:-2s;"></span>
-  <span class="spark" style="left:76%;width:3px;height:3px;bottom:33%;animation-duration:8.5s;animation-delay:-5s;"></span>
+  <span class="spark" style="left:76%;width:3px;height:3px;bottom:33%;animation-duration:8s;animation-delay:-5s;"></span>
   <span class="spark" style="left:84%;width:2px;height:2px;bottom:27%;animation-duration:12s;animation-delay:-8s;"></span>
 </div>
 
@@ -507,30 +511,31 @@
 
   <div class="stage">
 
-    <!-- ================= PAGE 3 : EDUCATION (เวอร์ชันกล่องข้อความ 3 ใบ) ================= -->
+    <!-- ================= PAGE 3 : EDUCATION ================= -->
     <section class="page active-page" id="page-3" aria-label="ประวัติการศึกษา">
       <div class="education-container">
         <div class="eyebrow">Education Path</div>
         <h2 style="font-size:clamp(28px,4vw,38px);font-weight:700;">ประวัติการศึกษา</h2>
         
-        <!-- แผงผัง 3 กล่องข้อความเคียงข้างกัน -->
+        <!-- แผนผัง 3 กล่องข้อความเรียงตัวสวยงามเป็น Grid -->
         <div class="edu-grid">
           
-          <!-- กล่องที่ 1: ประถมศึกษา -->
+          <!-- กล่องที่ 1: ประถมศึกษา (แก้ไขโครงสร้างเรียบร้อย) -->
           <div class="edu-card">
             <div class="edu-card-header">
-              <span class="edu-badge">25XX – 25XX</span>
+              <span class="edu-badge">2558 - 2563</span>
               <div class="edu-icon">
-                <!-- ไอคอนรองเท้าวิ่ง / ตัวแทนก้าวแรกการศึกษา -->
+                <!-- ไอคอนก้าวแรกการศึกษา -->
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M3 12h18M3 12a9 9 0 019-9M3 12a9 9 0 009 9"/>
                 </svg>
               </div>
             </div>
             <div class="edu-level">ระดับประถมศึกษา</div>
-            <span class="edu-badge">2558 - 2563</span>
             <div class="edu-school">โรงเรียนเทศบาลดอนหัวฬ่อ1</div>
-         
+            <div class="edu-details">
+              การศึกษาภาคบังคับเริ่มต้น<br>
+              มุ่งเน้นกิจกรรมและการเรียนรู้พื้นฐาน
             </div>
           </div>
 
@@ -548,8 +553,8 @@
             <div class="edu-level">ระดับมัธยมศึกษาตอนต้น</div>
             <div class="edu-school">โรงเรียนพานทอง</div>
             <div class="edu-details">
-              แผนการเรียน: <strong>วิทยาศาสตร์ - คอมพิวเตอร์</strong><br>
-              เกรดเฉลี่ยสะสม: 3.68 <strong>....</strong>
+              แผนการเรียน: <strong>วิทยาศาสตร์ - เทคโนโลยี</strong><br>
+              เกรดเฉลี่ยสะสม: <strong>3.68</strong>
             </div>
           </div>
 
@@ -568,9 +573,8 @@
             <div class="edu-level">ระดับมัธยมศึกษาตอนปลาย (ปัจจุบัน)</div>
             <div class="edu-school">โรงเรียนพานทอง</div>
             <div class="edu-details">
-              แผนการเรียน: <strong>วิทยาศาตร์ - คณิตศาสตร์</strong><br>
-              เกรดเฉลี่ยสะสม: 3.74<strong>....</strong><br>
-              
+              แผนการเรียน: <strong>วิทยาศาสตร์ - คณิตศาสตร์</strong><br>
+              เกรดเฉลี่ยสะสม: <strong>3.74</strong>
             </div>
           </div>
 
