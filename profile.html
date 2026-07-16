@@ -89,14 +89,14 @@
     overflow-y:auto;
   }
 
-  /* ---------- Profile Layout ---------- */
+  /* ---------- Profile Layout (ปรับปรุงให้ไม่บีบตัวเกินไปบนแท็บเล็ต) ---------- */
   .layout {
     display: grid;
-    grid-template-columns: minmax(280px, 1fr) 2fr;
-    gap: 30px;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
     align-items: stretch;
     width: 100%;
-    max-width: 1100px;
+    max-width: 1140px;
     margin: 0 auto;
   }
 
@@ -107,7 +107,7 @@
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(244, 241, 234, 0.05);
     border-radius: 16px;
-    padding: 20px;
+    padding: 18px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -146,12 +146,26 @@
     object-fit: cover;
     display: block;
   }
+  
+  /* ตรวจจับเมื่อรูปภาพโหลดสำเร็จ ให้ซ่อนไอคอนคำแนะนำด้านหลัง */
+  .photo-slot-premium img:not([style*="display: none"]):not([style*="display:none"]) + .hint {
+    display: none !important;
+  }
+
   .photo-slot-premium .hint {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     color: var(--ink-dim);
     font-size: 13px;
     font-family: 'Kanit', sans-serif;
     padding: 15px;
+    z-index: 1;
+    pointer-events: none;
   }
   .photo-slot-premium .hint svg {
     color: var(--accent);
@@ -171,13 +185,13 @@
     border: 1px solid rgba(255, 106, 61, 0.2);
     border-radius: 8px;
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     text-align: center;
     font-family: 'Kanit', sans-serif;
     margin-top: 15px;
   }
   .player-tag .jersey-number {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 800;
     color: var(--accent);
     line-height: 1;
@@ -185,7 +199,7 @@
     text-shadow: 0 0 10px var(--glow-orange);
   }
   .player-tag .position-title {
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 0.1em;
     color: var(--gold);
     text-transform: uppercase;
@@ -199,7 +213,7 @@
     border: 1px solid rgba(244, 241, 234, 0.08);
     border-top: 3px solid var(--accent);
     border-radius: 16px;
-    padding: 30px;
+    padding: 24px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
@@ -214,7 +228,7 @@
 
   /* หมวดหมู่ข้อมูล */
   .info-section {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
   .section-title {
     font-family: 'Kanit', sans-serif;
@@ -223,13 +237,13 @@
     letter-spacing: 0.08em;
     border-bottom: 1px solid rgba(255, 106, 61, 0.2);
     padding-bottom: 4px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     font-weight: 600;
   }
   .info-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 14px 24px;
+    gap: 12px 20px;
   }
   .info-item {
     border-bottom: 1px solid var(--line);
@@ -242,7 +256,7 @@
     margin-bottom: 2px;
   }
   .info-item .value {
-    font-size: 15px;
+    font-size: 14.5px;
     color: var(--ink);
   }
 
@@ -251,7 +265,7 @@
     background: rgba(244, 241, 234, 0.02);
     border: 1px solid var(--line);
     border-radius: 8px;
-    padding: 12px 16px;
+    padding: 10px 14px;
   }
   .skills-list {
     display: grid;
@@ -262,7 +276,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 13.5px;
+    font-size: 13px;
     color: var(--ink-dim);
   }
   .skill-item svg {
@@ -273,7 +287,7 @@
   .motto {
     margin-top: 15px;
     font-family: 'Kanit', sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--gold);
     border-left: 3px solid var(--gold);
@@ -312,20 +326,20 @@
   }
   .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
 
-  /* ---------- responsive ---------- */
-  @media (max-width:940px){
+  /* ---------- responsive (ปรับความกว้างจุดหักมุมให้เหมาะสมกับ iPad/แท็บเล็ตแนวตั้ง) ---------- */
+  @media (max-width:768px){
     .layout{
       grid-template-columns:1fr;
-      gap: 24px;
+      gap: 20px;
     }
     .photo-card {
-      max-width: 320px;
+      max-width: 280px;
       margin: 0 auto;
     }
     .info-grid, .skills-list{
       grid-template-columns: 1fr;
     }
-    .page{padding:2vh 6vw 20vh;}
+    .page{padding:2vh 6vw 22vh;}
     .nav-bar{
       padding:16px 6vw 20px;
       flex-direction:column-reverse;
@@ -361,7 +375,8 @@
         <div class="photo-card">
           <!-- กรอบรูปเงาสะท้อนแสง -->
           <div class="photo-slot-premium">
-            <img src="your-photo.jpg" alt="รูปโปรไฟล์ของคุณ" onerror="this.style.display='none'">
+            <!-- ใส่ชื่อไฟล์ภาพของคุณในจุดนี้ -->
+            <img src="image/IMG_0615" alt="รูปโปรไฟล์ของคุณ" onerror="this.style.display='none'">
             <div class="hint">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
